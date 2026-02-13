@@ -1,7 +1,7 @@
-import supabase from './supabase-client';
+import supabase from '../supabase-client';
 import { useEffect, useState } from 'react';
 import { Chart } from 'react-charts';
-import Form from './Form';
+import Form from '../components/Form';
 
 function Dashboard() {
   const [metrics, setMetrics] = useState([]);
@@ -26,8 +26,7 @@ function Dashboard() {
       .subscribe();
 
     return () => {
-      // supabase.removeChannel(channel);
-      channel.unsubscribe();
+      supabase.removeChannel(channel);
     };
   }, []);
 
@@ -45,7 +44,7 @@ function Dashboard() {
       }
       setMetrics(data);
     } catch (error) {
-      console.error('Error fetching metrics:', error);
+      console.error('Error fetching metrics:', error.message);
     }
   }
 
