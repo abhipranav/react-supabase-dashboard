@@ -148,6 +148,13 @@ header h1 {
   margin: 5px;
 }
 
+.add-form-container .error-message {
+  color: red;
+  text-align: center;
+  margin: 0;
+  font-size: 1rem;
+}
+
 label {
   display: flex;
   color: #082c1b;
@@ -183,6 +190,13 @@ form button:disabled {
   color: black;
   border-radius: 5px;
   border: 1px solid grey;
+}
+
+.rep-name-input {
+  margin-left: 5px;
+  color: black;
+  background: #e9ecef;
+  width: 60px;
 }
 
 select {
@@ -378,6 +392,25 @@ background: linear-gradient(45deg, #082c1b, #0dc566);
 background-clip: text;
 -webkit-text-fill-color: transparent;
 animation: fadeIn 0.8s ease-out;
+}
+
+.landing-logo {
+  max-width: 33rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 20px;
+  border: 6px solid #187c49;
+}
+
+.landing-logo img {
+  max-width: 100%;
+  height: auto;
+  margin-top: -30%;
+  margin-bottom: -40%;
+  object-fit: cover;
 }
 
 @keyframes fadeIn {

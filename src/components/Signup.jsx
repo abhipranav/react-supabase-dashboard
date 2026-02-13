@@ -34,6 +34,7 @@ const Signup = () => {
 
   return (
     <>
+      <div className='landing-logo'><img src='../../dunder_mifflin_logo.jpg' /></div>
       <h1 className="landing-header">Paper Like A Boss</h1>
       <div className="sign-form-container">
         <form
