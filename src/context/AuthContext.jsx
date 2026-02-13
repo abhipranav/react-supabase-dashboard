@@ -21,12 +21,10 @@ export const AuthContextProvider = ({ children }) => {
   }
   getInitialSession()
 
-  const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+  supabase.auth.onAuthStateChange((_event, session) => {
     setSession(session);
     console.log('Session changed:', session);
   })
-
-  return () => subscription.unsubscribe();
 
   }, []);
 
@@ -63,17 +61,23 @@ export const AuthContextProvider = ({ children }) => {
     }
   }
 
-  const signUpNewUser = async (email, password) => {
+  const signUpNewUser = async (email, password, name, accountType) => {
     try {
       const { data, error } = await supabase.auth.signUp({
         email: email.toLowerCase(), 
         password: password,
+        options: {
+          data: {
+            name: name,
+            account_type: accountType,
+          },
+        },
       });
       if (error) {
         console.error('Supabase sign-up error:', error.message);
         return { success: false, error: error.message };
       }
-      console.log('Supabase sign-up success:', data);
+      // console.log('Supabase sign-up success:', data);
       return { success: true, data };
     } catch (error) {
       console.error('Unexpected error during sign-up:', error.message);
